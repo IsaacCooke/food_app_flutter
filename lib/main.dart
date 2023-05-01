@@ -1,9 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:food_app_flutter/data/services/day_services.dart';
 
 import 'package:food_app_flutter/themes/color_schemes.dart';
 import 'package:food_app_flutter/pages/layout.dart';
+import 'package:sqflite/sqflite.dart';
+import 'package:sqflite_common_ffi/sqflite_ffi.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  databaseFactory = databaseFactoryFfi;
+  DayService().initDatabase();
   runApp(const App());
 }
 
