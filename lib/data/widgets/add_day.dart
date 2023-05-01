@@ -88,7 +88,7 @@ class AddDayState extends State<AddDay> {
                   onPressed: () {
                     DayService dayService = DayService();
                     Day _day = Day(
-                        date: DateTime(DateTime.now().day, DateTime.now().month, DateTime.now().year),
+                        date: DateTime(DateTime.now().day, DateTime.now().month, DateTime.now().year).toString(),
                         breakfast: _breakfast,
                         lunch: _lunch,
                         dinner: _dinner,
@@ -98,6 +98,8 @@ class AddDayState extends State<AddDay> {
                     );
 
                     dayService.insert(_day);
+
+                    Navigator.pop(context);
                   },
                   child: const Text("Submit"),
               ),

@@ -1,6 +1,6 @@
 class Day {
   int? id;
-  final DateTime date;
+  final String date;
   final int breakfast;
   final int lunch;
   final int dinner;
@@ -46,7 +46,7 @@ class Day {
 
   Day copy({
     int? id,
-    DateTime? date,
+    String? date,
     int? breakfast,
     int? lunch,
     int? dinner,
