@@ -38,13 +38,23 @@ class ChallengeService {
           content TEXT
         );
       ''');
+        await db.execute('''
+        INSERT INTO challenge (content)
+        VALUES ('Example challenge');
+        ''');
       },
     );
   }
 
   Future<Challenge> getChallenge() async {
     final db = await database;
-    final maps = await db.query('challenge', limit: 1, orderBy: 'DESC');
+    await db.execute('''
+        CREATE TABLE IF NOT EXISTS challenge (
+          id INTEGER PRIMARY KEY,
+          content TEXT
+        );
+      ''');
+    final maps = await db.query('challenge', limit: 1);
 
     if (maps.isEmpty) {
       return Challenge(content: 'No challenge found');

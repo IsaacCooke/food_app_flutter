@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
 import 'package:food_app_flutter/data/models/challenge.dart';
@@ -51,8 +53,25 @@ class ChallengePageState extends State<ChallengePage> {
     setState(() => _challenge = Text(challenge.content));
   }
 
+  void _generateNewChallenge() async {
+    ChallengeService challengeService = ChallengeService();
+    Random random = Random();
+    int challengeIndex = random.nextInt(_challengeArray.length);
+    await challengeService.insert(Challenge(content: _challengeArray[challengeIndex]));
+    _getChallenge();
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Flex(
+      direction: Axis.vertical,
+      children: [
+        ElevatedButton(
+            onPressed: () => _generateNewChallenge(),
+            child: const Text('Generate new challenge'),
+        ),
+        _challenge,
+      ],
+    );
   }
 }
