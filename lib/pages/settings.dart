@@ -31,7 +31,7 @@ class SettingsPage extends StatelessWidget {
                       minimumSize: const Size(double.infinity, 50),
                       padding: const EdgeInsets.symmetric(horizontal: 16.0),
                     ),
-                    child: const Text('Delete All'),
+                    child: const Text('Delete All Days'),
                   ),
                   const SizedBox(height: 16),
                   ElevatedButton(

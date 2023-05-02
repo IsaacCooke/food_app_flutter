@@ -41,9 +41,27 @@ class HistoryPageState extends State<HistoryPage> {
       appBar: AppBar(
         title: const Text('History'),
       ),
-      body: Center(
-        child: _totalWidget,
-      )
+      body: Flex(
+        direction: Axis.vertical,
+        children: [
+          Expanded(
+            child: Center(
+              child: _totalWidget,
+            ),
+          ),
+          Expanded(
+            child: Center(
+              child: ElevatedButton(
+                onPressed: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const DailyBreakdown()),
+                ),
+                child: const Text('Daily Breakdown'),
+              ),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

@@ -84,6 +84,7 @@ class AddDayState extends State<AddDay> {
                     onChanged: (value) => setState(() => _eveningSnack = value),
                   axis: Axis.horizontal,
                 ),
+              SizedBox(height: 20),
               ElevatedButton(
                   onPressed: () {
                     DayService dayService = DayService();
@@ -103,6 +104,7 @@ class AddDayState extends State<AddDay> {
                   },
                   child: const Text("Submit"),
               ),
+              SizedBox(height: 20),
               ElevatedButton(
                   onPressed: () {
                     Navigator.pop(context);

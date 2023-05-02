@@ -34,7 +34,7 @@ class DayService {
       onCreate: (db, version) async {
         await db.execute('''
         CREATE TABLE IF NOT EXISTS day (
-          id INTEGER PRIMARY KEY,
+          id INTEGER PRIMARY KEY AUTOINCREMENT,
           date TEXT,
           breakfast INTEGER,
           lunch INTEGER,
@@ -104,5 +104,72 @@ class DayService {
   Future<void> deleteAll() async {
     final db = await database;
     await db.delete('day');
+  }
+
+  Future<void> updateBreakfast(int breakfast, int id) async {
+    final db = await database;
+    await db.rawUpdate('''
+      UPDATE day
+      SET breakfast = ?
+      WHERE id = ?;
+    ''', [breakfast, id]);
+  }
+
+  Future<void> updateLunch(int lunch, int id) async {
+    final db = await database;
+    await db.rawUpdate('''
+      UPDATE day
+      SET lunch = ?
+      WHERE id = ?;
+    ''', [lunch, id]);
+  }
+
+  Future<void> updateDinner(int dinner, int id) async {
+    final db = await database;
+    await db.rawUpdate('''
+      UPDATE day
+      SET dinner = ?
+      WHERE id = ?;
+    ''', [dinner, id]);
+  }
+
+  Future<void> updateMorningSnack(int morningSnack, int id) async {
+    final db = await database;
+    await db.rawUpdate('''
+      UPDATE day
+      SET morningSnack = ?
+      WHERE id = ?;
+    ''', [morningSnack, id]);
+  }
+
+  Future<void> updateAfternoonSnack(int afternoonSnack, int id) async {
+    final db = await database;
+    await db.rawUpdate('''
+      UPDATE day
+      SET afternoonSnack = ?
+      WHERE id = ?;
+    ''', [afternoonSnack, id]);
+  }
+
+  Future<void> updateEveningSnack(int eveningSnack, int id) async {
+    final db = await database;
+    await db.rawUpdate('''
+      UPDATE day
+      SET eveningSnack = ?
+      WHERE id = ?;
+    ''', [eveningSnack, id]);
+  }
+
+  Future<Day> getIdFromDate() async {
+    final db = await database;
+    final String date = DateTime(DateTime.now().day, DateTime.now().month, DateTime.now().year).toString();
+
+    final maps = await db.rawQuery(
+        '''
+        SELECT * FROM day
+        WHERE date = ?;
+      ''', [date]);
+
+    return Day.fromMap(maps[0]);
   }
 }
