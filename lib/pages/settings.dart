@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+
 import 'package:food_app_flutter/data/services/challenge_service.dart';
 import 'package:food_app_flutter/data/services/day_services.dart';
+import 'package:food_app_flutter/handlers/notification_handler.dart';
 
 class SettingsPage extends StatelessWidget {
   SettingsPage({Key? key}) : super(key: key);
@@ -55,6 +57,18 @@ class SettingsPage extends StatelessWidget {
                     ),
                     child: const Text('Initialise Challenge Database'),
                   ),
+                  const SizedBox(height: 16),
+                  ElevatedButton(
+                    onPressed: () {
+                      NotificationHandler().initialiseSettings();
+                      NotificationHandler().scheduleNotification();
+                    },
+                    style: ElevatedButton.styleFrom(
+                      minimumSize: const Size(double.infinity, 50),
+                      padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                    ),
+                    child: const Text('Schedule Notifications'),
+                  )
                 ],
               ))
             ],
