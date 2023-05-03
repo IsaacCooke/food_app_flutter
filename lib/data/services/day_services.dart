@@ -55,7 +55,6 @@ class DayService {
   Future<Day> insert(Day day) async {
     final db = await database;
     final id = await db.insert('day', day.toMap());
-    print(day.toMap());
 
     return day.copy(id: id);
   }
@@ -63,7 +62,6 @@ class DayService {
   Future<List<Day>> getAllDays() async {
     final db = await database;
     final maps = await db.query('day');
-    print(maps);
     return List.generate(maps.length, (i) {
       return Day.fromMap(maps[i]);
     });
@@ -76,7 +74,6 @@ class DayService {
       orderBy: 'id DESC',
       limit: 7,
     );
-    print(maps);
     return List.generate(maps.length, (i) {
       return Day.fromMap(maps[i]);
     });

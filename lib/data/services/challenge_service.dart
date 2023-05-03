@@ -66,7 +66,6 @@ class ChallengeService {
   Future<Challenge> insert(Challenge challenge) async {
     final db = await database;
     final id = await db.insert('challenge', challenge.toMap());
-    print(challenge.toMap());
 
     return challenge.copy(id: id);
   }

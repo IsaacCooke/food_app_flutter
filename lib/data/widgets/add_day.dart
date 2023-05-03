@@ -84,11 +84,11 @@ class AddDayState extends State<AddDay> {
                     onChanged: (value) => setState(() => _eveningSnack = value),
                   axis: Axis.horizontal,
                 ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               ElevatedButton(
                   onPressed: () {
                     DayService dayService = DayService();
-                    Day _day = Day(
+                    Day day = Day(
                         date: DateTime(DateTime.now().day, DateTime.now().month, DateTime.now().year).toString(),
                         breakfast: _breakfast,
                         lunch: _lunch,
@@ -98,13 +98,13 @@ class AddDayState extends State<AddDay> {
                         eveningSnack: _eveningSnack,
                     );
 
-                    dayService.insert(_day);
+                    dayService.insert(day);
 
                     Navigator.pop(context);
                   },
                   child: const Text("Submit"),
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               ElevatedButton(
                   onPressed: () {
                     Navigator.pop(context);
