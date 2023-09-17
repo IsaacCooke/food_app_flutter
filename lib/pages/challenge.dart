@@ -14,12 +14,15 @@ class ChallengePage extends StatefulWidget {
 
 class ChallengePageState extends State<ChallengePage> {
   Widget _challenge = const Center(
-    child: Column(
-      children: <Widget>[
-        Text("Challenge loading..."),
-        CircularProgressIndicator(),
-      ],
-    ),
+    child: Padding(
+      padding: EdgeInsets.all(16.0),
+      child: Column(
+        children: <Widget>[
+          Text("Challenge loading..."),
+          CircularProgressIndicator(),
+        ],
+      ),
+    )
   );
 
   static const _challengeArray = <String>[
