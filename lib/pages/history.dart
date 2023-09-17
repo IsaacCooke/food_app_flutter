@@ -11,7 +11,7 @@ class HistoryPage extends StatefulWidget {
 }
 
 class HistoryPageState extends State<HistoryPage> {
-  DayService _dayService = DayService();
+  final DayService _dayService = DayService();
   Widget _totalWidget = const CircularProgressIndicator();
 
   @override
@@ -75,7 +75,7 @@ class DailyBreakdown extends StatefulWidget {
 
 class DailyBreakdownState extends State<DailyBreakdown> {
   List<Day> _days = [];
-  DayService _dayService = DayService();
+  final DayService _dayService = DayService();
 
   @override
   void initState() {

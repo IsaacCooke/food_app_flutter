@@ -13,9 +13,9 @@ class ChallengePage extends StatefulWidget {
 }
 
 class ChallengePageState extends State<ChallengePage> {
-  Widget _challenge = Center(
+  Widget _challenge = const Center(
     child: Column(
-      children: const <Widget>[
+      children: <Widget>[
         Text("Challenge loading..."),
         CircularProgressIndicator(),
       ],

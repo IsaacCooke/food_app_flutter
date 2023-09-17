@@ -7,13 +7,13 @@ class NotificationHandler {
 
   void initialiseSettings() async {
     const AndroidInitializationSettings initializationSettingsAndroid = AndroidInitializationSettings('@mipmap/ic_launcher');
-    final IOSInitializationSettings initializationSettingsIOS = IOSInitializationSettings(
+    const IOSInitializationSettings initializationSettingsIOS = IOSInitializationSettings(
         requestSoundPermission: true,
         requestBadgePermission: true,
         requestAlertPermission: true,
     );
-    final MacOSInitializationSettings initializationSettingsMacOS = MacOSInitializationSettings();
-    final InitializationSettings initializationSettings = InitializationSettings(
+    const MacOSInitializationSettings initializationSettingsMacOS = MacOSInitializationSettings();
+    const InitializationSettings initializationSettings = InitializationSettings(
       android: initializationSettingsAndroid,
       iOS: initializationSettingsIOS,
       macOS: initializationSettingsMacOS,
